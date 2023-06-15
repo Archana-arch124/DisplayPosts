@@ -1,0 +1,45 @@
+input[type="text"]{
+  padding: 5px;
+}
+
+ul {
+  list-style: none;
+  padding: 0px 20px 0px 20px;
+}
+
+li {
+  margin-bottom: 20px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.space-between {
+  display: flex;
+  justify-content: space-evenly;
+}
+.background{
+  padding: 15px;
+  background-color: lightgray;
+
+}
+
+@media (min-width: 900px) {
+  input[type="text"] {
+    width: 40%; 
+  }
+}
+
+@media (max-width: 585px) {
+  body {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    max-width: 300px;
+  }
+}

@@ -2,11 +2,11 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import postsDisplay from './postsDisplay';
+import PostsDisplay from '../Posts/postsDisplay';
 
 const mockAxios = new MockAdapter(axios);
 
-describe('postsDisplay', () => {
+describe('PostsDisplay', () => {
   beforeEach(() => {
     mockAxios.reset();
   });
@@ -19,7 +19,7 @@ describe('postsDisplay', () => {
 
     mockAxios.onGet('https://jsonplaceholder.typicode.com/posts').reply(200, mockPosts);
 
-    render(<postsDisplay />);
+    render(<PostsDisplay />);
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
 
@@ -34,7 +34,7 @@ describe('postsDisplay', () => {
   test('displays error message when API request fails', async () => {
     mockAxios.onGet('https://jsonplaceholder.typicode.com/posts').reply(500, 'Internal Server Error');
 
-    render(<postsDisplay />);
+    render(<PostsDisplay />);
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
 
@@ -50,7 +50,7 @@ describe('postsDisplay', () => {
     ];
     mockAxios.onGet('https://jsonplaceholder.typicode.com/posts').reply(200, mockPosts);
 
-    render(<postsDisplay />);
+    render(<PostsDisplay />);
 
 
     await waitFor(() => {
